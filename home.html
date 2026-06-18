@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Welcome</h2>
+
+    <h3 id="welcomeUser"></h3>
+
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+
+let user = localStorage.getItem("loggedInUser");
+
+if(user){
+    document.getElementById("welcomeUser").innerText =
+    "Hello, " + user;
+}
+else{
+    window.location.href = "login.html";
+}
+
+function logout(){
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "login.html";
+}
+
+</script>
+
+</body>
+</html>
